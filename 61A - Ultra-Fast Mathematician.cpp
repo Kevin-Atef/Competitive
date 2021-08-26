@@ -5,18 +5,22 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    
+    string s1{}, s2{};
+    cin >> s1 >> s2;
+    rep(i,0,s1.length()) {
+        if(s1[i] != s2[i]) cout << '1';
+        else cout << '0';
+    }
 }
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    cout.tie(0);
 
     //freopen("", "r", stdin);
     //freopen("", "w", stdout);
 
-    //solve();
+    solve();
 
     /*ll t;
     cin >> t;

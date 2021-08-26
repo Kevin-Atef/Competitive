@@ -5,18 +5,25 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    
+    ll n{};
+    double sum{};
+    cin >> n;
+    double arr[n];
+    rep(i,0,n) {
+        cin >> arr[i];
+        sum += arr[i] / 100;
+    }
+    cout << (sum / n) * 100;
 }
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    cout.tie(0);
 
     //freopen("", "r", stdin);
     //freopen("", "w", stdout);
 
-    //solve();
+    solve();
 
     /*ll t;
     cin >> t;
