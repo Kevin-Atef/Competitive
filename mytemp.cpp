@@ -17,7 +17,7 @@ int main() {
 
     //solve();
 
-    /*int t;
+    /*ll t;
     cin >> t;
     while(t--) {
         solve();
