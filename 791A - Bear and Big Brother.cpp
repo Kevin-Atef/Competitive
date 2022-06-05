@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+ 
 int main() {
     int bobWeight, brotherWeight, years = 0;
     cin >> bobWeight >> brotherWeight;
@@ -10,6 +10,6 @@ int main() {
         brotherWeight = brotherWeight * 2;
     }
     cout << years;
-
+ 
     return 0;
 }

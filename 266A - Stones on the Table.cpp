@@ -2,16 +2,11 @@
 using namespace std;
 
 int main() {
-    int x;
-    int count = 0;
-    cin >> x;
-    string color;
-    cin >> color;
-    for (int i = 0; i < x; i++) {
-        if(color[i] == color[i+1] && color[i+1] != x) {
-            count++;
-        }
+    int num{}, count{};
+    string s{};
+    cin >> num >> s;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == s[i+1]) count++;
     }
     cout << count;
-    return 0;
 }

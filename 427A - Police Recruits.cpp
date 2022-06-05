@@ -2,32 +2,15 @@
 using namespace std;
 
 int main() {
-    int x;
-    cin >> x;
-    int arr[x];
-    int count = 0;
-    for(int i = 0; i < x; i++) {
-        cin >> arr[i];
-    }
-    int police = 0;
-    for(int i = 0; i < x; i++) {
-        if(arr[i] == -1) {
-            if(i - 1 < 0) {
-                count++;
-            }
-            else {
-                if(police > 0) {
-                    police--;
-                }
-                else if(police <= 0) {
-                    count++;
-                }
-            }
+    int num{}, oi{}, count{}, officers{};
+    cin >> num;
+    for(int i = 0; i < num ; i++) {
+        cin >> oi;
+        if(oi == -1) {
+            if(officers == 0) count++;
+            else officers--;
         }
-        else if(arr[i] > 0) {
-            police = police + arr[i];
-        }
+        else officers+= oi;
     }
     cout << count;
-    return 0;
 }

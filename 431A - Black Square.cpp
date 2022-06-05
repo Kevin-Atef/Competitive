@@ -2,32 +2,15 @@
 using namespace std;
 
 int main() {
-    int strip[4];
-    int count = 0;
-    for(int i = 0; i < 4; i++) {
-        cin >> strip[i];
-    }
-    string input;
-    cin >> input;
-    for(int i = 0; i < input.length(); i++) {
-        switch (input[i])
-        {
-        case '1':
-            count+=strip[0];
-            break;
-        case '2':
-            count+=strip[1];
-            break;
-        case '3':
-            count+=strip[2];
-            break;
-        case '4':
-            count+=strip[3];
-            break;
-        default:
-            break;
-        }
+    int a1{}, a2{}, a3{}, a4{}, count{};
+    cin >> a1 >> a2 >> a3 >> a4;
+    string s{};
+    cin >> s;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '1') count += a1;
+        else if(s[i] == '2') count += a2;
+        else if(s[i] == '3') count += a3;
+        else if(s[i] == '4') count += a4;
     }
     cout << count;
-    return 0;
 }

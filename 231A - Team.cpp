@@ -2,26 +2,13 @@
 using namespace std;
 
 int main() {
-    int numberOfProblems, petya, vasya, tonya, whoCanSolve = 0, solvedProblems = 0;
-    cin >> numberOfProblems;
-    for (int i = 0; i < numberOfProblems; i++) {
-        whoCanSolve = 0;
-        cin >> petya >> vasya >> tonya;
-        if (petya == 1) {
-            whoCanSolve = whoCanSolve + 1;
-        }
-        if (vasya == 1) {
-            whoCanSolve = whoCanSolve + 1;
-        }
-        if (tonya == 1) {
-            whoCanSolve = whoCanSolve + 1;
-        }
-        if (whoCanSolve >= 2) {
-            solvedProblems++;
-        }
-
+    int number{}, views{}, sol{};
+    cin >> number;
+    for(int ii = 0; ii < number; ii++) {
+        int a{}, b{}, c{};
+        cin >> a >> b >> c;
+        views = a + b + c;
+        if(views >= 2) sol++;
     }
-    cout << solvedProblems;
-
-    return 0;
+    cout << sol;
 }

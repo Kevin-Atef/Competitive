@@ -1,45 +1,34 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int main() {
-    int x;
-    cin >> x;
-    int card[x];
-    for(int i = 0; i < x; i++) {
-        cin >> card[i];
+    int num{}, s{}, d{}, left{}, right{}; 
+    cin >> num;
+    right = num-1;
+    int arr[num];
+    for(int i = 0; i < num; i++) cin >> arr[i];
+    for(int i = 0; i < num; i++) {
+        if(i % 2 == 0) {
+            if(arr[right] > arr[left]) {
+                s+= arr[right];
+                right--;
+            }
+            else {
+                s+= arr[left];
+                left++;
+            }
+        }
+        else {
+            if(arr[right] > arr[left]) {
+                d+= arr[right];
+                right--;
+            }
+            else {
+                d+= arr[left];
+                left++;
+            }
+        }
     }
-
-    int s = 0, d = 0;
-    bool turn = true;
-    int l = 0, r = x - 1;
-
-    while(l <= r) {
-        if(card[l] >= card[r]) {
-            if(turn) {
-                s+=card[l];
-                turn = false;
-                l++;
-            }
-            else if(!turn) {
-                d+=card[l];
-                turn = true;
-                l++;
-            }
-        }
-        else if(card[r] >= card[l]) {
-            if(turn) {
-                s+=card[r];
-                turn = false;
-                r--;
-            }
-            else if(!turn) {
-                d+=card[r];
-                turn = true;
-                r--;
-            }
-        }
-    } 
-    
     cout << s << " " << d;
-    return 0;
 }

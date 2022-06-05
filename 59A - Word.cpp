@@ -1,30 +1,25 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 int main() {
-    string s;
-    int capital = 0, small = 0;
-    cin >> s;
-    for (int i = 0; i < s.length(); i++) {
-        if (isupper(s[i])) {
-            capital++;
-        }
-        else if (islower(s[i])) {
-            small++;
-        }
+    string s{};
+    int count{};
+    bool cap{};
+    cin >> s; 
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] >= 65 && s[i] <= 90) count++;
     }
+    if(count > (s.length() - count)) cap = true;
+    else cap = false;
 
-    if (small > capital || small == capital) {
-        for (int i = 0; i < s.length(); i++) {
-            s[i] = tolower(s[i]);
+    if(cap) {
+        for(int i = 0; i < s.length(); i++) {
+            cout << char(toupper(s[i]));
         }
     }
-
-    else if (capital > small) {
-        for (int i = 0; i < s.length(); i++) {
-            s[i] = toupper(s[i]);
+    else {
+        for(int i = 0; i < s.length(); i++) {
+            cout << char(tolower(s[i]));
         }
     }
-    cout << s;
-    return 0;
 }

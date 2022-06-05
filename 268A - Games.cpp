@@ -2,25 +2,17 @@
 using namespace std;
 
 int main() {
-    int x;
-    int count = 0;
-    cin >> x;
-    int home[x], guest[x];
-    for(int i = 0; i < x; i++) {
-        cin >> home[i] >> guest[i]; 
-    }
-    for(int host = 0; host < x; host++) {
-        for(int j = 0; j < x; j++) {
-            if(j==host) {
-                continue;
-            }
-            else{
-                if(home[host] == guest[j]) {
-                    count++;
-                }
-            }
+    int num{}, count{}; 
+    bool even{};
+    cin >> num;
+    int arr[num*2];
+    for(int i = 0; i < num*2; i++) cin >> arr[i];
+    for(int i = 0; i < num*2; i++) {
+        if(i%2 == 0) even = true;
+        else even = false;
+        for(int j = i; j < num*2; j++) {
+            if(arr[i] == arr[j] && (j%2 == even)) count++;
         }
-    } 
+    }
     cout << count;
-    return 0;
 }
