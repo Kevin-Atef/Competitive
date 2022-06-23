@@ -2,19 +2,15 @@
 using namespace std;
 
 int main() {
-    int wordCnt;
-    cin >> wordCnt;
-    string input;
-    for(int i = 0; i < wordCnt; i++) {
-        cin >> input;
-        int length = input.length();
-        if(length <= 10) {
-            cout << input << endl;
+    int n{};
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        string s{};
+        cin >> s;
+        if(s.length() <= 10) {
+            cout << s << '\n';
+            continue;
         }
-        else if(length > 10) {
-            cout << input[0] << (length - 2) << input[length - 1] << endl;
-        }
+        cout << s[0] << s.length() - 2 << s[s.length() - 1] << '\n';
     }
-
-    return 0;
 }

@@ -3,19 +3,16 @@
 using namespace std;
 
 int main() {
-    int shoe[4];
-    cin>>shoe[0]>>shoe[1]>>shoe[2]>>shoe[3];
-    int count = -1;
-    int n = sizeof(shoe) / sizeof(shoe[0]);
-    sort(shoe, shoe + n);
-    for(int i = 3; i != -1; i--) {
-        if(i == 0) {
-            count++;
-        }
-        else if(shoe[i] == shoe[i-1]) {
+    int arr[4];
+    int count{};
+    for(int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+    sort(arr, arr+4);
+    for(int i = 0; i < 5; i++) {
+        if(arr[i] == arr[i+1]) {
             count++;
         }
     }
     cout << count;
-    return 0;
 }

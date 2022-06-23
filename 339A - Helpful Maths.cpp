@@ -3,34 +3,17 @@
 using namespace std;
 
 int main() {
-    string input;
+    string input{}, brr{};
     cin >> input;
-    int stringLength = input.length(); 
-    if(stringLength == 1) {
-        cout << input;
-        return 0;
+    for(int i = 0; i < input.length(); i+=2) {
+        brr += input[i];
     }
-    int arrLength = stringLength - (stringLength / 2 - 1) - 1;
-    char arr[arrLength];
-
-    for(int i = 0; i < stringLength; i++) {
-        static int j = 0;
-        if(i % 2 == 0) {
-            arr[j] = input[i];
-            j++;
+    sort(brr.begin(), brr.end());
+    for(int i = 0; i < brr.length(); i++) {
+        if(i == brr.length() - 1) {
+            cout << brr[i];
+            break;
         }
+        cout << brr[i] << '+';
     }
-
-    int n = sizeof(arr) / sizeof(arr[0]);
-    sort(arr, arr + n);
-
-    for(int i = 0; i < arrLength; i++) {
-        if(i + 1 != arrLength) {
-            cout<<arr[i] << '+';
-        }
-        else {
-            cout << arr[i];
-        }
-    }
-    return 0;
 }

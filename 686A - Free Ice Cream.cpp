@@ -2,23 +2,17 @@
 using namespace std;
 
 int main() {
-    long long int trans, cream, number, distressed = 0;
-    char sign;
-    cin >> trans >> cream;
-    for(int i = 0; i < trans; i++) {
-        cin >> sign >> number;
-        if(sign == '+') {
-            cream += number;
-        }
-        if(sign == '-') {
-            if(cream >= number) {
-                cream -= number;
-            }
-            else {
-                distressed++;
-            }
+    long long int n{}, x{}, count{}, ice{};
+    cin >> n >> x;
+
+    for(int i = 0; i < n; i++) {
+        char sign;
+        cin >> sign >> ice;
+        if(sign == '+') x+= ice;
+        else {
+            if(ice > x) count++;
+            else x-=ice;
         }
     }
-    cout << cream << " " << distressed;
-    return 0;
+    cout << x << " " << count;
 }

@@ -7,15 +7,13 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    ll n{};
-    cin >> n;
-    ll arr[n], arrr[n+1];
-    for(int i = 0; i < n; i++) {
-        cin >> arr[i];
-        arrr[arr[i]] = i+1;
-    }
-    for(int i = 0; i < n; i++) {
-        cout << arrr[i+1] << " ";
+    while(true) {
+        ll n;
+        cin >> n;
+        if(n == 0) break;
+        ll x = sqrt(n);
+        if(x*x == n) cout << "yes" << '\n';
+        else cout << "no" << '\n';
     }
 }
 

@@ -1,37 +1,21 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
- 
+
 int main() {
-    string input;
-    getline(cin, input);
-    int stringLength = input.length();
-    
-    if(stringLength == 2) {
+    string s{}, ss{};
+    int count{};
+    getline(cin, s);
+    if(s.length() == 2) {
         cout << 0;
         return 0;
     }
- 
-    int arrLength = stringLength / 3;
-    char arr[arrLength];
- 
-    //Converts string into a char array
-    for(int i = 0; i < stringLength; i++) {
-        static int j = 0;
-        if((i - 1) % 3 == 0){
-            arr[j] = input[i];
-            j++;
-        }
+    for(int i = 1; i < s.length(); i+=3) {
+        ss+=s[i];
     }
- 
-    int count = 0;
-    sort(arr, arr + arrLength);
-    for(int i = 0; i < arrLength; i++) {
-        if(arr[i] == arr[i + 1] && i + 1 < arrLength) {
-            count++;
-        }
+    sort(ss.begin(), ss.end());
+    for(int i = 0; i < ss.length(); i++) {
+        if(ss[i]!=ss[i+1])count++;
     }
- 
-    cout<< arrLength - count;
-    return 0;
+    cout << count;
 }
