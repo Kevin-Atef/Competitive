@@ -7,24 +7,27 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    ll n;
+    ll n, ans{};
     cin >> n;
-    ll arr[n];
-    for(int i = 0; i < n; i++) {
+    ll arr[n], sum[n];
+    for(ll i = 0; i < n; i++) {
         cin >> arr[i];
     }
+    sort(arr, arr+n);
     for(int i = 0; i < n; i++) {
-        if(i == 0) {
-            cout << abs(arr[i] - arr[i+1]) << " " << abs(arr[i] - arr[n-1]) << '\n';
-        }
-        else if(i == n-1) {
-            cout << abs(arr[i] - arr[i-1]) << " " << abs(arr[i] - arr[0]) << '\n';
-        }
-        else {
-            cout << min(abs(arr[i] - arr[i-1]), abs(arr[i] - arr[i+1])) << " "
-                 << max(abs(arr[i] - arr[0]), abs(arr[i] - arr[n-1])) << '\n';
-        }
+        if(i == 0) sum[i] = arr[i];
+        else sum[i] = sum[i-1] + arr[i];
     }
+    for(int i = n-1; i > -1; i--) {
+        ll summ{0};
+        for(int j = i; j < n; j++) {
+            summ+=arr[j];
+        }
+        ans++;
+        if(summ > sum[i-1]) break;
+        
+    }
+    cout << ans;
 }
 
 int main() {

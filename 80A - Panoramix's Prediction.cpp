@@ -7,20 +7,24 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    ll n, ans{};
-    cin >> n;
-    string s;
-    cin >> s;
-    for(int i = 0; i < n; i++) {
-        s[i] = tolower(s[i]);
+    bool prime{true};
+    ll n, x;
+    cin >> n >> x;
+    ll k = n+1;
+    while(true) {
+        prime = true;
+        for(int i = 2; i <= k/2; i++) {
+            if(k%i == 0) {
+                prime = false;
+                break;
+            }
+        }
+        if(prime) break;
+        k++;
     }
-    sort(s.begin(), s.end());
-    for(int i = 0; i < n; i++) {
-        if(s[i] != s[i+1] && i+1 < n) ans++;
-    }
-    if(ans == 25) cout << "YES";
+    if(k == x) cout << "YES";
     else cout << "NO";
-}  
+}
 
 int main() {
     ios::sync_with_stdio(0);

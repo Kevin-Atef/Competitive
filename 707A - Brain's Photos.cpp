@@ -7,20 +7,17 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    ll n, ans{};
-    cin >> n;
-    string s;
-    cin >> s;
-    for(int i = 0; i < n; i++) {
-        s[i] = tolower(s[i]);
+    ll n, x;
+    cin >> n >> x;
+    char c;
+    while(cin >> c) {
+        if(c != 'W' && c!= 'B' && c!= 'G') {
+            cout << "#Color";
+            return;
+        }
     }
-    sort(s.begin(), s.end());
-    for(int i = 0; i < n; i++) {
-        if(s[i] != s[i+1] && i+1 < n) ans++;
-    }
-    if(ans == 25) cout << "YES";
-    else cout << "NO";
-}  
+    cout << "#Black&White";
+}
 
 int main() {
     ios::sync_with_stdio(0);

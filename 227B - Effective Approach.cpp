@@ -6,21 +6,31 @@
 using namespace std;
 using ll = long long;
 
+bool myComparison(const pair<int,int> &a,const pair<int,int> &b) {
+    return a.second<b.second;
+}
+
 void solve() {
-    ll n, ans{};
+    ll start{}, end{};
+    ll n;
     cin >> n;
-    string s;
-    cin >> s;
-    for(int i = 0; i < n; i++) {
-        s[i] = tolower(s[i]);
+    unordered_map<int, int> mp;
+    for(ll i = 0; i < n; i++) {
+        ll x;
+        cin >> x;
+        mp[x] = i;
     }
-    sort(s.begin(), s.end());
-    for(int i = 0; i < n; i++) {
-        if(s[i] != s[i+1] && i+1 < n) ans++;
+    ll q;
+    cin >> q;
+    for(ll i = 0; i < q; i++) {
+        ll x;
+        cin >> x;
+        ll index = mp[x];
+        start+=index+1;
+        end+=n-index;
     }
-    if(ans == 25) cout << "YES";
-    else cout << "NO";
-}  
+    cout << start << " " << end;
+}
 
 int main() {
     ios::sync_with_stdio(0);

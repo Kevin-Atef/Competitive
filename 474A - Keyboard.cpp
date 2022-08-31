@@ -7,20 +7,17 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    ll n, ans{};
-    cin >> n;
-    string s;
-    cin >> s;
-    for(int i = 0; i < n; i++) {
-        s[i] = tolower(s[i]);
+    string s = "qwertyuiopasdfghjkl;zxcvbnm,./";
+    char shift;
+    cin >> shift;
+    string ss;
+    cin >> ss;
+    for(int i = 0; i < ss.length(); i++) {
+        ll index = find(s.begin(), s.end(), ss[i]) - s.begin();
+        if(shift == 'R') cout << s[index - 1];
+        else cout << s[index + 1];
     }
-    sort(s.begin(), s.end());
-    for(int i = 0; i < n; i++) {
-        if(s[i] != s[i+1] && i+1 < n) ans++;
-    }
-    if(ans == 25) cout << "YES";
-    else cout << "NO";
-}  
+}
 
 int main() {
     ios::sync_with_stdio(0);

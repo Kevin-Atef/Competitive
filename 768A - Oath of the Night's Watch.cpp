@@ -9,18 +9,18 @@ using ll = long long;
 void solve() {
     ll n, ans{};
     cin >> n;
-    string s;
-    cin >> s;
+    ll arr[n];
     for(int i = 0; i < n; i++) {
-        s[i] = tolower(s[i]);
+        cin >> arr[i];
     }
-    sort(s.begin(), s.end());
+    sort(arr, arr+n);
+    ll min = arr[0];
+    ll max = arr[n-1];
     for(int i = 0; i < n; i++) {
-        if(s[i] != s[i+1] && i+1 < n) ans++;
+        if(arr[i] > min && arr[i] < max) ans++;
     }
-    if(ans == 25) cout << "YES";
-    else cout << "NO";
-}  
+    cout << ans;
+}
 
 int main() {
     ios::sync_with_stdio(0);

@@ -6,21 +6,28 @@
 using namespace std;
 using ll = long long;
 
+bool myComparison(const pair<int,int> &a,const pair<int,int> &b) {
+    return a.second<b.second;
+}
+
 void solve() {
-    ll n, ans{};
+    ll arr[500]{};
+    ll i = 0;
+    do {
+        arr[i] = (i*(i+1))/2;
+        i++;
+    } while(arr[i-1] < 500);
+
+    ll n;
     cin >> n;
-    string s;
-    cin >> s;
-    for(int i = 0; i < n; i++) {
-        s[i] = tolower(s[i]);
+    for(ll i = 0; i < 500; i++) {
+        if(arr[i] == n) {
+            cout << "YES";
+            return;
+        }
     }
-    sort(s.begin(), s.end());
-    for(int i = 0; i < n; i++) {
-        if(s[i] != s[i+1] && i+1 < n) ans++;
-    }
-    if(ans == 25) cout << "YES";
-    else cout << "NO";
-}  
+    cout << "NO";
+}
 
 int main() {
     ios::sync_with_stdio(0);

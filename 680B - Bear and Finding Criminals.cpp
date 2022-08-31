@@ -7,24 +7,26 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    ll n;
-    cin >> n;
-    ll arr[n];
+    ll n, x, count{};
+    cin >> n >> x;
+    bool arr[n];
     for(int i = 0; i < n; i++) {
         cin >> arr[i];
     }
-    for(int i = 0; i < n; i++) {
-        if(i == 0) {
-            cout << abs(arr[i] - arr[i+1]) << " " << abs(arr[i] - arr[n-1]) << '\n';
+    if(arr[x-1]) count++;
+    for(int i = 1; i <= n; i++) {
+        if(x+i > n && x-i < 1) continue;
+        if(x+i <= n && x-i >= 1) {
+            if(arr[x+i-1] && arr[x-i-1]) count+=2;
         }
-        else if(i == n-1) {
-            cout << abs(arr[i] - arr[i-1]) << " " << abs(arr[i] - arr[0]) << '\n';
+        else if(x+i <= n) {
+            if(arr[x+i-1]) count++;
         }
-        else {
-            cout << min(abs(arr[i] - arr[i-1]), abs(arr[i] - arr[i+1])) << " "
-                 << max(abs(arr[i] - arr[0]), abs(arr[i] - arr[n-1])) << '\n';
+        else if(x-i >= 1) {
+            if(arr[x-i-1]) count++;
         }
     }
+    cout << count;
 }
 
 int main() {

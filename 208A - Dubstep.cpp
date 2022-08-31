@@ -7,20 +7,23 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    ll n, ans{};
-    cin >> n;
     string s;
     cin >> s;
-    for(int i = 0; i < n; i++) {
-        s[i] = tolower(s[i]);
+    if(s.length() < 3) { 
+        cout << s;
+        return;
     }
-    sort(s.begin(), s.end());
-    for(int i = 0; i < n; i++) {
-        if(s[i] != s[i+1] && i+1 < n) ans++;
+    for(int i = 0; i < int(s.length())-2; i++) {
+        if(s[i] == 'W' && s[i+1] == 'U' && s[i+2] == 'B') {
+            s.erase(s.begin()+i, s.begin()+i+3);
+            if(i!=0 && s[i-1] != ' ') {
+                s.insert(s.begin()+i, 1, ' ');
+            }
+            i=i-1;
+        }
     }
-    if(ans == 25) cout << "YES";
-    else cout << "NO";
-}  
+    cout << s;
+}
 
 int main() {
     ios::sync_with_stdio(0);

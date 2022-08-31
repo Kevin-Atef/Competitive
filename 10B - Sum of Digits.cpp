@@ -7,20 +7,28 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    ll n, ans{};
+    string n;
     cin >> n;
-    string s;
-    cin >> s;
-    for(int i = 0; i < n; i++) {
-        s[i] = tolower(s[i]);
+    ll sum{}, count{};
+
+    if(n.length() == 1) {cout << 0; return;}
+    loop:
+    for(ll i = 0; i < n.length(); i++) {
+        sum += (n[i]-'0');;
     }
-    sort(s.begin(), s.end());
-    for(int i = 0; i < n; i++) {
-        if(s[i] != s[i+1] && i+1 < n) ans++;
+
+    if(to_string(sum).length() > 1) {
+        count++;
+        n = to_string(sum);
+        sum = 0;
+        goto loop;
     }
-    if(ans == 25) cout << "YES";
-    else cout << "NO";
-}  
+    else {
+        count++;
+        cout << count;
+    }
+
+}
 
 int main() {
     ios::sync_with_stdio(0);
